@@ -4,6 +4,7 @@ require_once('Player.php');
 require_once('Piece.php');
 require_once('Board.php');
 require_once('Square.php');
+require_once('BoardPrintDecorator.php');
 
 class Game
 {
@@ -85,7 +86,8 @@ class Game
 
     public function printBoard()
     {
-        $this->board->printBoard();
+        $boardPrintDecorator = new BoardPrintDecorator($this->board);
+        $boardPrintDecorator->printBoard();
     }
 
     public static function getInstance()
