@@ -1,0 +1,102 @@
+h2,
+p {
+    font-family: Helvetica, sans-serif;
+}
+
+h2 {
+    margin-top: 10px;
+}
+
+body {
+    background: #e5b585;
+}
+
+table {
+    width: 500px;
+    height: 500px;
+    margin: 0 auto;
+}
+
+td {
+    background-color: #883000;
+}
+
+.red {
+    background-color: #883000;
+}
+
+.white {
+    background-color: #883000;
+}
+
+.black {
+    background-color: #000000;
+}
+
+#left {
+    display: inline-block;
+    float: left;
+    width: 400px;
+}
+
+#game {
+    text-align: center;
+}
+
+#controls {
+    margin: 10px;
+    font-size: 15px;
+}
+
+input[type=submit] {
+    padding: 12px;
+    margin: 0 10px;
+    width: 200px;
+    color: wheat;
+    background: #883000;
+    border: none;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    color: #883000;
+    background: white;
+    -webkit-transition: ease .3s;
+    -moz-transition: ease .3s;
+    -ms-transition: ease .3s;
+    -o-transition: ease .3s;
+    transition: ease .3s;
+}
+
+input[type=submit]:focus {
+    outline: none;
+    background: #501c00;
+    color: white;
+    -webkit-transition: ease .3s;
+    -moz-transition: ease .3s;
+    -ms-transition: ease .3s;
+    -o-transition: ease .3s;
+    transition: ease .3s;
+}
+
+input[type=checkbox] {
+    height: 35px;
+}
+
+.red-piece {
+    height: 40px;
+    width: 40px;
+    background: red;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.white-piece {
+    height: 40px;
+    width: 40px;
+    background: white;
+    border-radius: 50%;
+    display: inline-block;
+}
