@@ -23,7 +23,6 @@ class Game
         if(array_key_exists('submit',$_GET)) {
             $this->checkMove();
         }
-
     }
 
     private function startSession()
@@ -98,4 +97,6 @@ class Game
 
         return $instance;
     }
+
+    private function __clone() {}
 }

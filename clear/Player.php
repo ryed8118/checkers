@@ -25,7 +25,6 @@ class Player {
             $x = $yCoord[$i];
             $this->pieces[] = new Piece($x,$y,$direction,$i);
         }
-
     }
 
     public function &getPieces() {

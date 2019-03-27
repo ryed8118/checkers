@@ -21,7 +21,6 @@ class Board {
                 }else{
                     $this->squares[] = new Square($i, $j, true);
                 }
-
             }
         }
 
@@ -71,7 +70,6 @@ class Board {
                 }else {
                     $this->squares[] = new Square($i, $j, true);
                 }
-
             }
         }
 
@@ -97,7 +95,6 @@ class Board {
             $this->instancePiece($pieces, $x, $y, $square, $this->getTurn());
             $this->instancePiece($otherPieces, $x, $y, $square, $this->inactivePlayer);
         }
-
     }
 
     public function moveIsValid() {
@@ -121,50 +118,29 @@ class Board {
         }
 
         foreach($direction as $d) {
-            if($moveFromX + $d == $this->x && $moveFromY + 1 == $this->y) {
-                $this->validMove=true;
-                return 'move';
-            }elseif($moveFromX + $d == $this->x && $moveFromY - 1 == $this->y) {
+            if(($moveFromX + $d == $this->x && $moveFromY + 1 == $this->y) || ($moveFromX + $d == $this->x && $moveFromY - 1 == $this->y)) {
                 $this->validMove=true;
                 return 'move';
             }
         }
 
-        return $this->checkNearbyPieces($moveFromX, $moveFromY);
+        return $this->checkNearbySquares($moveFromX, $moveFromY);
     }
 
-    public function checkNearbyPieces($moveFromX, $moveFromY)
+    public function checkNearbySquares($moveFromX, $moveFromY)
     {
-        if($moveFromX+2==$this->x && $moveFromY+2==$this->y) {
-            foreach($this->squares as $thisSquare) {
-                if($thisSquare->getPosX()==$moveFromX+1 && $thisSquare->getPosY()==$moveFromY+1 && $thisSquare->getOccupied()==$this->inactivePlayer) {
-                    return $this->capturePiece($thisSquare);
+        if($moveFromX+2==$this->x || $moveFromX-2==$this->x)
+        {
+            if($moveFromY+2==$this->y || $moveFromY-2==$this->y)
+            {
+                foreach($this->squares as $thisSquare) {
+                    if(($thisSquare->getPosX()==$moveFromX+1 && $thisSquare->getPosY()==$moveFromY+1 && $thisSquare->getOccupied()==$this->inactivePlayer) || ($thisSquare->getPosX()==$moveFromX+1 && $thisSquare->getPosY()==$moveFromY-1 && $thisSquare->getOccupied()==$this->inactivePlayer) || ($thisSquare->getPosX()==$moveFromX-1 && $thisSquare->getPosY()==$moveFromY+1 && $thisSquare->getOccupied()==$this->inactivePlayer) || ($thisSquare->getPosX()==$moveFromX-1 && $thisSquare->getPosY()==$moveFromY-1 && $thisSquare->getOccupied()==$this->inactivePlayer)) {
+                        return $this->capturePiece($thisSquare);
+                    }
                 }
+                return false;
             }
-            return false;
-        }elseif($moveFromX+2==$this->x && $moveFromY-2==$this->y) {
-            foreach($this->squares as $thisSquare) {
-                if($thisSquare->getPosX()==$moveFromX+1 && $thisSquare->getPosY()==$moveFromY-1 && $thisSquare->getOccupied()==$this->inactivePlayer) {
-                    return $this->capturePiece($thisSquare);
-                }
-            }
-            return false;
-        }elseif($moveFromX-2==$this->x && $moveFromY+2==$this->y) {
-            foreach($this->squares as $thisSquare) {
-                if($thisSquare->getPosX()==$moveFromX-1 && $thisSquare->getPosY()==$moveFromY+1 && $thisSquare->getOccupied()==$this->inactivePlayer) {
-                    return $this->capturePiece($thisSquare);
-                }
-            }
-            return false;
-        }elseif($moveFromX-2==$this->x && $moveFromY-2==$this->y) {
-            foreach($this->squares as $thisSquare) {
-                if($thisSquare->getPosX()==$moveFromX-1 && $thisSquare->getPosY()==$moveFromY-1 && $thisSquare->getOccupied()==$this->inactivePlayer) {
-                    return $this->capturePiece($thisSquare);
-                }
-            }
-            $this->validMove=false;
-            return false;
-        }else {
+        } else {
             $this->validMove=false;
             return false;
         }
@@ -178,6 +154,7 @@ class Board {
             $this->playerOne->deletePiece($square->getPieceId());
         }
         $this->validMove=true;
+
         return 'jump';
     }
 
