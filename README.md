@@ -41,7 +41,7 @@ The following old classes was affected:
 The following classes were created:
 
 - **Game**: the `Game` class was developed to implement the `Singleton` pattern. All the game logic that was written in the `index.php` file was moved to this class. 
-- **BoardPrintDecorator**: this class offers the implementation of the board print method (originally in `Board` class) - invoked in `Game::printBoard()`.
+- **BoardPrintDecorator**: this class offers the implementation of the board print method (originally in `Board` class) - invoked in `Game::printBoard()` - using the Decorator pattern.
 
 And finally, but no less important, the unnecessary comments in all files was removed and the page styles was moved (and updated) to `css/styles.css` stylesheet.
 
@@ -53,8 +53,8 @@ And finally, but no less important, the unnecessary comments in all files was re
 
 ## References
 
-[1] [Adapter pattern](https://en.wikipedia.org/wiki/Singleton_pattern). Wikipedia
+[1] [Adapter pattern](https://en.wikipedia.org/wiki/Adapter_pattern). originally in Wikipedia.
 
-[2] [Decorator pattern](https://en.wikipedia.org/wiki/Decorator_pattern). Wikipedia
+[2] [Decorator pattern](https://en.wikipedia.org/wiki/Decorator_pattern). originally in Wikipedia.
 
-[3] [Singleton pattern](https://en.wikipedia.org/wiki/Adapter_pattern). Wikipedia
+[3] [Singleton pattern](https://en.wikipedia.org/wiki/Singleton_pattern). originally in Wikipedia.
