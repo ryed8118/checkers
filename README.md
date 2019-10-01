@@ -1,12 +1,7 @@
-checkers
+Checkers
 ========
-
-Checkers Game
-
-partially functional checkers game.
+Partially functional checkers game
 
 Notes:
--Kinged pieces look the same as regular pieces.
--Double jumps aren't possible.
--
--
+- Kinged pieces look the same as regular pieces.
+- Double jumps aren't possible.

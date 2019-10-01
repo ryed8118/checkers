@@ -1,17 +1,14 @@
 <?php
 
 class Player {
-
-
     private $pieces;
     private $color;
     private $direction;
 
-
     public function __construct($color, $direction) {
 
-        $this->color = $color; // White OR Red
-        $this->direction = $direction; // 1 or -1
+        $this->color = $color;
+        $this->direction = $direction;
 
         $this->pieces = array();
 
@@ -28,8 +25,7 @@ class Player {
             $x = $yCoord[$i];
             $this->pieces[] = new Piece($x,$y,$direction,$i);
         }
-
-    } // End constructor
+    }
 
     public function &getPieces() {
         return $this->pieces;
@@ -62,8 +58,5 @@ class Player {
         }elseif($this->color=='Red' && $x==7) {
             $pieceObj->king();
         }
-        //$this->pieces[$piece] = $pieceObj;
     }
-
-
-} // End class definition
+}
